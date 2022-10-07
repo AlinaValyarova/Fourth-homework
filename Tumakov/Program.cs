@@ -6,7 +6,7 @@ namespace Tumakov
     {
         static void Main(string[] args)
         {
-            hw2();
+            hw1();
         }
 
         static void BiggerFromTwo(int a, int b)
@@ -93,6 +93,26 @@ namespace Tumakov
             Console.WriteLine("Smallest common divider: " + a);
         }
 
+        static void Divider(int a, int b, int c)
+        {
+            int i;
+            bool flag = true;
+            for (i = 2; i < 10000; i++)
+            {
+                if (a % i == 0 && b % i == 0 && c % i == 0)
+                {
+                    flag = true;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+
+            }
+            Console.WriteLine(flag ? "\n Smallest common divider: " + i  : $"\n These numbers are prime");
+        }
+
         public static void hw1()
         {
             Console.WriteLine("Написать метод, который вычисляет НОД двух натуральных чисел (алгоритм Евклида). " +
@@ -102,6 +122,9 @@ namespace Tumakov
             Console.WriteLine("Enter a second number");
             int num2 = Convert.ToInt32(Console.ReadLine());
             Divider(num1, num2);
+            Console.WriteLine("Enter a third number");
+            int num3 = Convert.ToInt32(Console.ReadLine());
+            Divider(num1, num2, num3);
         }
 
         static int Fibonacci(int n)

@@ -6,7 +6,14 @@ namespace Homework
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ex1();
+        }
+
+
+
+        static void ex1()
+        {
+            Console.WriteLine("Написать метод решения квадратного уравнения");
         }
     }
 }
