@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32901.82
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tumakov", "Tumakov\Tumakov.csproj", "{79BEDC7C-993B-4569-8352-6341FBA52302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tumakov", "Tumakov\Tumakov.csproj", "{79BEDC7C-993B-4569-8352-6341FBA52302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework", "Homework\Homework.csproj", "{AD99BD89-2A1B-4F15-B312-865CC64347E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework", "Homework\Homework.csproj", "{AD99BD89-2A1B-4F15-B312-865CC64347E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
