@@ -7,7 +7,7 @@ namespace Homework
     {
         static void Main(string[] args)
         {
-            ex7();
+            ex6(); 
         }
 
         static string Quadratic(int a, int b, int c)
@@ -23,7 +23,7 @@ namespace Homework
             }
             else
             {
-                return ("Equation has no x");
+                return ("Equation has no solutions");
             }
 
         }
@@ -98,7 +98,7 @@ namespace Homework
             {
                 Console.WriteLine(s + " ");
             }
-            Console.WriteLine("Sorting in process...");
+            Console.WriteLine("Sorting in progress...");
             BubbleSort(array);
             Console.WriteLine("After sorting:");
             for (int i = 0; i < array.Length; i++)
@@ -108,21 +108,22 @@ namespace Homework
             Console.ReadLine();
         }
 
-        static string Mas(params int[] numbers)
+        static int Mas(ref int mult, out double mid, params int[] numbers)
         {
-            int Sum = 0;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                Sum += numbers[i];
-            }
-            int result = 1;
             for (int a = 0; a < numbers.Length; a++)
             {
-                result *= numbers[a];
+                mult *= numbers[a];
             }
-
-            Console.WriteLine("Произведение = {0}", result);
-            return ("Сумма=" + Sum);
+            Console.WriteLine("Multiplication = " + mult);
+            int sum = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+            }
+            Console.WriteLine("Sum = {0}", sum);
+            mid = sum / numbers.Length;
+            Console.WriteLine("Average = {0}", mid);
+            return sum;
 
         }
 
@@ -131,6 +132,18 @@ namespace Homework
             Console.WriteLine("Написать метод, где в качества аргумента будет передан массив (ключевое слово params)." +
                 "Вывести сумму элементов массива(вернуть). Вывести(ref) произведение массива. " +
                 "Вывести(out) среднее арифметическое в массиве.");
+            Console.WriteLine("Enter the numer of elements in array");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[num];
+            int a = 0;
+            double b = 0.00;
+            Console.WriteLine("Enter numbers through enter");
+            for (int i = 0; i < num; i++)
+            {
+                int numbs = Convert.ToInt32(Console.ReadLine());
+                array[i] = numbs;
+            }
+            Mas(ref a, out b, array);
         }
 
         static void WaitsForExit(string exit)
@@ -158,7 +171,7 @@ namespace Homework
                     Thread.Sleep(3000);
                     Console.WriteLine("Wrong enter!");
                     Console.ForegroundColor = ConsoleColor.White;
-                    string a = Console.ReadLine();
+                    string a = Console.ReadLine().ToLower();
                     WaitsForExit(a);
                 }
                 else
@@ -166,77 +179,37 @@ namespace Homework
                     switch (num)
                     {
                         case 0:
-                            Console.WriteLine("######");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("######");
+                            Console.WriteLine("######" + "\n#    #" + "\n#    #" + "\n#    #" + "\n######");
                             break;
                         case 1:
-                            Console.WriteLine("  #   ");
-                            Console.WriteLine("# #   ");
-                            Console.WriteLine("  #   ");
-                            Console.WriteLine("  #   ");
-                            Console.WriteLine("##### ");
+                            Console.WriteLine("  #   " + "\n# #   " + "\n  #   " + "\n  #   "+ "\n##### ");
                             break;
                         case 2:
-                            Console.WriteLine(" #### ");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("   #  ");
-                            Console.WriteLine("#     ");
-                            Console.WriteLine("######");
+                            Console.WriteLine(" #### " + "\n#    #" + "\n   #  " + "\n#     " + "\n######");
                             break;
                         case 3:
-                            Console.WriteLine(" #### ");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("   # #");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine(" #### ");
+                            Console.WriteLine(" #### " + "\n#    #" + "\n   # #" + "\n#    #" + "\n #### ");
                             break;
                         case 4:
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("######");
-                            Console.WriteLine("     #");
-                            Console.WriteLine("     #");
+                            Console.WriteLine("#    #" + "\n#    #" + "\n######" + "\n     #" + "\n     #");
                             break;
                         case 5:
-                            Console.WriteLine("######");
-                            Console.WriteLine("#     ");
-                            Console.WriteLine("# ## #");
-                            Console.WriteLine("     #");
-                            Console.WriteLine("######");
+                            Console.WriteLine("######" + "\n#     " + "\n# ## #" + "\n     #" + "\n######");
                             break;
                         case 6:
-                            Console.WriteLine("######");
-                            Console.WriteLine("#     ");
-                            Console.WriteLine("# # ##");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("######");
+                            Console.WriteLine("######" +"\n#     " + "\n# # ##" + "\n#    #" + "\n######");
                             break;
                         case 7:
-                            Console.WriteLine("#######");
-                            Console.WriteLine("      #");
-                            Console.WriteLine("    #  ");
-                            Console.WriteLine("  #    ");
-                            Console.WriteLine("#      ");
+                            Console.WriteLine("#######" + "\n      #" + "\n    #  " + "\n  #    " + "\n#      ");
                             break;
                         case 8:
-                            Console.WriteLine("######");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("######");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("######");
+                            Console.WriteLine("######" + "\n#    #" + "\n######" + "\n#    #" + "\n######");
                             break;
                         case 9:
-                            Console.WriteLine("######");
-                            Console.WriteLine("#    #");
-                            Console.WriteLine("######");
-                            Console.WriteLine("     #");
-                            Console.WriteLine("######");
+                            Console.WriteLine("######" + "\n#    #" + "\n######" + "\n     #" + "\n######");
                             break;
                     }
-                    string a = Console.ReadLine();
+                    string a = Console.ReadLine().ToLower();
                     WaitsForExit(a);
                 }
             }
@@ -286,34 +259,56 @@ namespace Homework
                 "Напишить метод, который на вход принимает деда, список матерных слов(params). " +
                 "Если дед содержит в своей лексике матерные слова из списка, то бабка ставит фингал за каждое слово." +
                 "Вернуть количество фингалов.");
-            Ded GF1;
-            GF1.Name = "Gregory";
-            string[] ph1 = { "stupid", "careless", "slut", "moron" };
-            GF1.Phrases = ph1;
-
-            Ded GF2;
-            GF2.Name = "Joe";
-            string[] ph2 = { "weirdo", "pig", "stupid" };
-            GF2.Phrases = ph2;
-
-            Ded GF3;
-            GF3.Name = "Sergey";
-            string[] ph3 = { "freak", "nerd" };
-            GF3.Phrases = ph3;
-
-            Ded GF4;
-            GF4.Name = "Miron";
-            string[] ph4 = { "noob", "cow", "sheep", "stupid" };
-            GF4.Phrases = ph4;
-
-            Ded GF5;
-            GF5.Name = "Lion";
-            string[] ph5 = { "stupid" };
-            GF5.Phrases = ph5;
-
             try
             {
-                dedHits(GF5.Name, GF5.Phrases);
+                Console.WriteLine("Enter the number of ded (1-5)");
+                int num = Convert.ToInt32(Console.ReadLine());
+                if (num > 1 && num < 5)
+                {
+                    switch (num)
+                    {
+                        case 1:
+                            Ded GF1;
+                            GF1.Name = "Gregory";
+                            string[] ph1 = { "stupid", "careless", "slut", "moron" };
+                            GF1.Phrases = ph1;
+                            dedHits(GF1.Name, GF1.Phrases);
+                            break;
+                        case 2:
+                            Ded GF2;
+                            GF2.Name = "Joe";
+                            string[] ph2 = { "weirdo", "pig", "stupid" };
+                            GF2.Phrases = ph2;
+                            dedHits(GF2.Name, GF2.Phrases);
+                            break;
+                        case 3:
+                            Ded GF3;
+                            GF3.Name = "Sergey";
+                            string[] ph3 = { "freak", "nerd" };
+                            GF3.Phrases = ph3;
+                            dedHits(GF3.Name, GF3.Phrases);
+                            break;
+                        case 4:
+                            Ded GF4;
+                            GF4.Name = "Miron";
+                            string[] ph4 = { "noob", "cow", "sheep", "stupid" };
+                            GF4.Phrases = ph4;
+                            dedHits(GF4.Name, GF4.Phrases);
+                            break;
+                        case 5:
+                            Ded GF5;
+                            GF5.Name = "Lion";
+                            string[] ph5 = { "stupid" };
+                            GF5.Phrases = ph5;
+                            dedHits(GF5.Name, GF5.Phrases);
+                            break;
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Wrong enter");
+                }
             }
             catch(FormatException e)
             {
